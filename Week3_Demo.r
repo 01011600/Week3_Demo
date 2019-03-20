@@ -61,4 +61,28 @@ names(managers)[11] <- "Answer total"
 
 #Change name of age_cat to "Age category"
 names(managers)[10] <- "Age Category"
-managers
+#------------------------------------------------
+# Dealing with missing data
+#------------------------------------------------
+
+# removes any missing data
+new_managers <- na.omit(managers)
+
+new_managers
+
+# Use complete cases to show rows where data is available
+complete_data <- complete.cases(managers)
+complete_data
+sum(complete_data)
+
+# List the rows that do not have missing values
+# note that the ',' and no number inside the
+# square bracket means "all columns"
+
+complete_data <- managers[complete.cases(managers),]
+complete_data
+
+# find the sum of all missing alues in the age column
+sum(is.na(managers$Age))
+
+
